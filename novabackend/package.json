@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "kill-port 5001 && nodemon -r dotenv/config --experimental-json-modules index.js"
+    "dev": "kill-port 5001 && nodemon -r dotenv/config --experimental-json-modules index.js",
+     "start": "react-scripts start",
+  "build": "react-scripts build"
   },
   "author": "chris",
   "license": "ISC",

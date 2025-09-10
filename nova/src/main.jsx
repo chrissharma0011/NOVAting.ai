@@ -15,7 +15,7 @@ import RegisterScreen from './screens/register.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<App />}>
+    <Route path='/' element={<NOVAting/>}>
       <Route path='/login' element={<LoginScreen />} />
         <Route path='/register' element={<RegisterScreen />} />
 
