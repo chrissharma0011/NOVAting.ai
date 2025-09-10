@@ -2,7 +2,11 @@ import connectDB from "./db.js";
 import { app } from "./app.js";
 import dotenv from "dotenv"
 
-connectDB()
+
+dotenv.config({
+    path:'./env'
+})
+ connectDB()
 
 .then(()=>{
      app.listen(5001,()=>{

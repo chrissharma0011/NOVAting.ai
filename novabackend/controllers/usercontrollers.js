@@ -62,15 +62,21 @@ const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   if (!email) throw new ApiError(400, "Email is required");
+  
   if (!password) throw new ApiError(400, "Password is required");
+
     console.log("working -1 login");
   const user = await User.findOne({ email });
+
   if (!user) throw new ApiError(404, "No user found with this email");
 
   const isPasswordCorrect = await user.isPasswordCorrect(password);
+
   if (!isPasswordCorrect) throw new ApiError(401, "Incorrect password");
+
     console.log("working -2 login");
   const { accessToken, refreshToken } = await generateAccessTokenAndRefreshTokens(user._id);
+  
   const finalUser = await User.findById(user._id).select("-password -refreshToken");
 
   const cookieOptions = {
